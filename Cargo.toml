@@ -1,0 +1,14 @@
+[package]
+name = "stdweb-alert-example"
+version = "0.1.0"
+authors = ["Lilian A. Moraru <lilian.moraru90@gmail.com>"]
+
+[target.'cfg(any(target_arch = "wasm32", target_arch="asmjs"))'.dependencies]
+stdweb = { git = "https://github.com/koute/stdweb.git" , rev = "9a465f28" }
+
+[target.'cfg(not(any(target_arch = "wasm32", target_arch="asmjs")))'.dependencies]
+rocket = "0.3"
+rocket_codegen = "0.3"
+
+[build-dependencies]
+glob = "0.2"

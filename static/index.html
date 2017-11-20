@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>stdweb • Alert</title>
+	</head>
+	<body>
+		<input class="the-input">
+		<script type='text/javascript'>
+			var Module = {};
+
+			fetch('js/alert.wasm').then(response =>
+				response.arrayBuffer()
+				).then(buffer => {
+
+				Module.wasmBinary = buffer;
+
+				var script = document.createElement('script');
+				script.src = "js/alert.js";
+				script.onload = function() {
+					console.log("Emscripten boilerplate loaded.")
+				}
+				document.body.appendChild(script);
+			});
+		</script>
+	</body>
+</html>
